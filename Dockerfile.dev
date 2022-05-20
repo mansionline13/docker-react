@@ -1,0 +1,13 @@
+# only used when we are running application in dev environment
+FROM node:14-alpine
+
+WORKDIR '/app'
+
+# Install some dependencies
+COPY package.json .
+RUN npm install
+
+COPY . .
+
+# Default command
+CMD ["npm", "run", "start"]
